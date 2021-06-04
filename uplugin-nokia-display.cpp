@@ -31,7 +31,7 @@ int NokiaDisplay::printf(uint8_t x, uint8_t y, const char *fmt, ...) {
   return count;
 }
 
-#define DEFAULT_CONTRAST 167
+#define DEFAULT_CONTRAST 175
 #define DEFAULT_BIAS 0x14
 
 void NokiaDisplay::setup() {
