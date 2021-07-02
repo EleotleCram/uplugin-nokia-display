@@ -1,11 +1,11 @@
 
 #include <every.h>
 
-#include <uplugin-nokia-display.h>
+#include <upNokiaDisplay.h>
 
 #include "c64font.h"
 
-void NokiaDisplay::drawFastText(uint8_t x, uint8_t y, const char *text) {
+void upNokiaDisplay::drawFastText(uint8_t x, uint8_t y, const char *text) {
   uint8_t offset = 0;
   for (int i = 0; i < strlen(text); i++) {
     const uint8_t *data = c64font + ((text[i]) - ' ') * 9;
@@ -16,7 +16,7 @@ void NokiaDisplay::drawFastText(uint8_t x, uint8_t y, const char *text) {
   }
 }
 
-int NokiaDisplay::printf(uint8_t x, uint8_t y, const char *fmt, ...) {
+int upNokiaDisplay::printf(uint8_t x, uint8_t y, const char *fmt, ...) {
   va_list argv;
 
   va_start(argv, fmt);
@@ -34,11 +34,11 @@ int NokiaDisplay::printf(uint8_t x, uint8_t y, const char *fmt, ...) {
 #define DEFAULT_CONTRAST 175
 #define DEFAULT_BIAS 0x14
 
-void NokiaDisplay::setup() {
+void upNokiaDisplay::setup() {
   // Initialize Display
   begin(DEFAULT_CONTRAST, DEFAULT_BIAS);
 }
 
-void NokiaDisplay::loop() {
+void upNokiaDisplay::loop() {
   EVERY(40 MILLISECONDS) { display(); }
 }
