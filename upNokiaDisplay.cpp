@@ -31,10 +31,23 @@ int upNokiaDisplay::printf(uint8_t x, uint8_t y, const char *fmt, ...) {
   return count;
 }
 
+void upNokiaDisplay::setbl(bool on) {
+  digitalWrite(bl, inverted ? !on : on);
+}
+
 #define DEFAULT_CONTRAST 175
 #define DEFAULT_BIAS 0x14
 
 void upNokiaDisplay::setup() {
+  // Initialize bl
+  if (inverted) {
+    // We only need to logically make the signal low, for the BL leds to light on.
+    pinMode(bl, INPUT_PULLUP);
+  } else {
+    // We must source the current to drive the BL leds.
+    pinMode(bl, OUTPUT);
+  }
+
   // Initialize Display
   begin(DEFAULT_CONTRAST, DEFAULT_BIAS);
 }

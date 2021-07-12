@@ -4,6 +4,9 @@
 #include <Adafruit_PCD8544.h>
 #include <uPlugin.h>
 
+#define ON true
+#define OFF false
+
 class upNokiaDisplay : public Adafruit_PCD8544, public uPlugin {
   bool inverted;
   uint8_t bl;
@@ -27,6 +30,7 @@ public:
   }
 
   int printf(uint8_t x, uint8_t y, const char *fmt, ...);
+  void setbl(bool on);
 
   void setup();
   void loop();
