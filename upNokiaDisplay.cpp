@@ -40,5 +40,7 @@ void upNokiaDisplay::setup() {
 }
 
 void upNokiaDisplay::loop() {
-  EVERY(40 MILLISECONDS) { display(); }
+  EVERY(40 MILLISECONDS) {
+    display();
+  }
 }

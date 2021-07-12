@@ -15,14 +15,13 @@ public:
 #ifdef USE_HARDWARE_SPI
   // Not specifying clk and mosi
   // enables hardware SPI mode:
-  upNokiaDisplay(uint8_t clk, uint8_t mosi, uint8_t dc, uint8_t ce, uint8_t rst,
-                 uint8_t bl, bool bl_inverted)
+  upNokiaDisplay(uint8_t clk, uint8_t mosi, uint8_t dc, uint8_t ce, uint8_t rst, uint8_t bl,
+                 bool bl_inverted)
       : Adafruit_PCD8544(dc, ce, rst), bl(bl), inverted(bl_inverted) {
 #else
-  upNokiaDisplay(uint8_t clk, uint8_t mosi, uint8_t dc, uint8_t ce, uint8_t rst,
-                 uint8_t bl, bool bl_inverted)
-      : Adafruit_PCD8544(clk, mosi, dc, ce, rst), bl(bl),
-        inverted(bl_inverted) {
+  upNokiaDisplay(uint8_t clk, uint8_t mosi, uint8_t dc, uint8_t ce, uint8_t rst, uint8_t bl,
+                 bool bl_inverted)
+      : Adafruit_PCD8544(clk, mosi, dc, ce, rst), bl(bl), inverted(bl_inverted) {
 #endif
     //
   }
