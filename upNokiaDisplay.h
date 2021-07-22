@@ -31,6 +31,7 @@ public:
 
   int printf(uint8_t x, uint8_t y, const char *fmt, ...);
   void setbl(bool on);
+  bool isbl();
 
   void setup();
   void loop();

@@ -35,6 +35,10 @@ void upNokiaDisplay::setbl(bool on) {
   digitalWrite(bl, inverted ? !on : on);
 }
 
+bool upNokiaDisplay::isbl() {
+  return digitalRead(bl) != inverted;
+}
+
 #define DEFAULT_CONTRAST 175
 #define DEFAULT_BIAS 0x14
 
